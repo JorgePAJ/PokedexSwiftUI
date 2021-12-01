@@ -9,7 +9,15 @@ import SwiftUI
 
 struct PokedexView: View {
     var body: some View {
-        Text("Pokedex View")
+        NavigationView {
+            VStack {
+                Text("Pokedex View")
+                NavigationLink(destination: PokemonView()) {
+                    Text("pokemon test")
+                }
+            }
+        }.navigationBarTitleDisplayMode(.inline)
+            .navigationBarHidden(true)
     }
 }
 
