@@ -11,8 +11,13 @@ struct ContentView: View {
     var body: some View {
         TabView{
             NavigationView{
-                TeamBuilderView()
+                        
+                    TeamBuilderView()
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarHidden(true)
+                
             }.tabItem{ Text("Team Builder")}.tag(1)
+            
             NavigationView{
                 PokedexView()
                     
