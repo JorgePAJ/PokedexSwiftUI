@@ -68,25 +68,25 @@ struct teamOptions: View{
                 Button(action: {showingSheet.toggle()}) {
                     botonTeam()
                 }
-                Button(action: {}) {
+                Button(action: {showingSheet.toggle()}) {
                     botonTeam()
                 }
                 .padding(.horizontal,15)
-                Button(action: {}) {
+                Button(action: {showingSheet.toggle()}) {
                     botonTeam()
                 }
 
             }
             .padding(.vertical,15)
             HStack{
-                Button(action: {}) {
+                Button(action: {showingSheet.toggle()}) {
                     botonTeam()
                 }
-                Button(action: {}) {
+                Button(action: {showingSheet.toggle()}) {
                     botonTeam()
                 }
                 .padding(.horizontal,15)
-                Button(action: {}) {
+                Button(action: {showingSheet.toggle()}) {
                     botonTeam()
                 }
 
