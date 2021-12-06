@@ -60,10 +60,12 @@ struct TeamBuilderView: View {
 
 
 struct teamOptions: View{
+    @State private var showingSheet = false
+    
     var body: some View{
         VStack{
             HStack{
-                Button(action: {}) {
+                Button(action: {showingSheet.toggle()}) {
                     botonTeam()
                 }
                 Button(action: {}) {
@@ -89,7 +91,22 @@ struct teamOptions: View{
                 }
 
             }
+        }        .sheet(isPresented: $showingSheet) {
+            SheetView()
         }
+    }
+}
+
+struct SheetView: View {
+    @Environment(\.dismiss) var dismiss
+
+    var body: some View {
+        Button("Press to dismiss") {
+            dismiss()
+        }
+        .font(.title)
+        .padding()
+        .background(Color.black)
     }
 }
 
