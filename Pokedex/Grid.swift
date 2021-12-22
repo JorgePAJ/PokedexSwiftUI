@@ -17,7 +17,13 @@ struct Grid: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 40) {
                 ForEach((0...30), id: \.self) {_ in
-                    PokeBox()
+                    Button {
+                        
+                    } label: {
+                        PokeBox()
+                    }
+
+                    
                 }
             }
             .padding(.horizontal)
