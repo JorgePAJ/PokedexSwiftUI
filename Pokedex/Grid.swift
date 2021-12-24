@@ -20,7 +20,7 @@ struct Grid: View {
                     Button {
                         
                     } label: {
-                        PokeBox()
+                        PokeBox(name: "Squirtle", id: "007", image: "7", type: "water", background: "waterBackground")
                     }
 
                     

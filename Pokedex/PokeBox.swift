@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct PokeBox: View {
-    @State var name : String = "Squirtle"
-    @State var id : String = "007"
-    @State var image : String =  "7"
+    @State var name: String
+    @State var id : String
+    @State var image : String
+    @State var type: String
+    @State var background: String
     
     var body: some View {
         VStack {
@@ -27,13 +29,13 @@ struct PokeBox: View {
                 ZStack(alignment: .leading){
                     RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1).background(RoundedRectangle(cornerRadius: 10).fill(.white))
                     HStack{
-                        Image("water").resizable().aspectRatio(contentMode: .fit).frame(width: 30, height: 12).padding(.leading,10)
+                        Image("\(type)").resizable().aspectRatio(contentMode: .fit).frame(width: 30, height: 12).padding(.leading,10)
                     }
                 
                 }.frame(height : 20)
                 
             }
-            .frame(width: 150, height: 100).background(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1)).background(RoundedRectangle(cornerRadius: 10).fill(Color("lightBlue")))
+            .frame(width: 150, height: 100).background(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1)).background(RoundedRectangle(cornerRadius: 10).fill(Color(background)))
         
         }
         
@@ -44,6 +46,6 @@ struct PokeBox: View {
 
 struct PokeBox_Previews: PreviewProvider {
     static var previews: some View {
-        PokeBox()
+        PokeBox(name: "squirtle", id: "007", image: "7", type: "water", background: "waterBackground")
     }
 }
