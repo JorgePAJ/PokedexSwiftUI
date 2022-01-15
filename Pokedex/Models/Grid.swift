@@ -22,7 +22,7 @@ struct Grid: View {
                     ForEach((0...30), id: \.self) {_ in
                         NavigationLink {
                             PokemonView()
-
+                                .navigationBarTitleDisplayMode(.inline)
                         } label: {
                             PokeBox(name: "Squirtle", id: "007", image: "7", type: "water", background: "waterBackground")
                         }
