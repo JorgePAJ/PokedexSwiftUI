@@ -112,13 +112,11 @@
 		3430AAA92757141F002EE982 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				3438A01227933851002ACA53 /* Models */,
 				3430AAD427571439002EE982 /* Views */,
 				3430AAAE2757141F002EE982 /* Assets.xcassets */,
 				3430AAAA2757141F002EE982 /* PokedexApp.swift */,
 				341D5A542757D80B00EE447F /* ContentView.swift */,
-				3B578863275928AB00DC7AD7 /* PokeBox.swift */,
-				3BD328F6275FC0B100F74DB8 /* Grid.swift */,
-				3BAFB8C7277269B900BB00EC /* Model.swift */,
 				3430AAB02757141F002EE982 /* Preview Content */,
 			);
 			path = Pokedex;
@@ -160,6 +158,16 @@
 				341D5A522757D6DB00EE447F /* SettingsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3438A01227933851002ACA53 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3B578863275928AB00DC7AD7 /* PokeBox.swift */,
+				3BD328F6275FC0B100F74DB8 /* Grid.swift */,
+				3BAFB8C7277269B900BB00EC /* Model.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,7 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pokedex/Preview Content\"";
-				DEVELOPMENT_TEAM = LZ79D4T7YB;
+				DEVELOPMENT_TEAM = 2NY3LJ8MC2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -492,7 +500,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pokedex/Preview Content\"";
-				DEVELOPMENT_TEAM = LZ79D4T7YB;
+				DEVELOPMENT_TEAM = 2NY3LJ8MC2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

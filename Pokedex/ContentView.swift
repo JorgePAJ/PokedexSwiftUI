@@ -15,7 +15,6 @@ struct ContentView: View {
             }.tabItem{ Text("Team Builder")}.tag(1)
             NavigationView{
                 PokedexView()
-                    
             }.tabItem{ Text("Pokedex")}.tag(2)
             NavigationView{
                 ProfileView()
