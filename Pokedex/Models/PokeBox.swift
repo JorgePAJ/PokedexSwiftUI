@@ -14,6 +14,7 @@ struct PokeBox: View {
     @State var type: String
     @State var background: String
     
+    
     var body: some View {
         VStack {
             VStack{
@@ -23,7 +24,10 @@ struct PokeBox: View {
                 }
                 
                 ZStack{
-                    Image(image).resizable().aspectRatio(contentMode: .fit).frame(width: 80, height: 80).padding(.leading,80)
+                    PokemonImage(imageLink: image)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 80, height: 80)
+                         .padding(.leading,80)
                 }.frame(width: 10, height: 20)
                     
                 ZStack(alignment: .leading){

@@ -20,6 +20,9 @@
 		3430AAC82757141F002EE982 /* PokedexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3430AAC72757141F002EE982 /* PokedexUITestsLaunchTests.swift */; };
 		346540DD2757D5E600C05F15 /* PokedexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346540DC2757D5E600C05F15 /* PokedexView.swift */; };
 		346540DF2757D5FF00C05F15 /* TeamBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346540DE2757D5FF00C05F15 /* TeamBuilderView.swift */; };
+		34DB69EF2796038300109A85 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB69EE2796038300109A85 /* Pokemon.swift */; };
+		34DB69F12796039E00109A85 /* PokemonSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB69F02796039E00109A85 /* PokemonSelected.swift */; };
+		34DB69F52796131B00109A85 /* PokemonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB69F42796131B00109A85 /* PokemonImage.swift */; };
 		3B578864275928AB00DC7AD7 /* PokeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B578863275928AB00DC7AD7 /* PokeBox.swift */; };
 		3BAFB8C8277269B900BB00EC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAFB8C7277269B900BB00EC /* Model.swift */; };
 		3BD328F7275FC0B100F74DB8 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD328F6275FC0B100F74DB8 /* Grid.swift */; };
@@ -59,6 +62,9 @@
 		3430AAC72757141F002EE982 /* PokedexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		346540DC2757D5E600C05F15 /* PokedexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexView.swift; sourceTree = "<group>"; };
 		346540DE2757D5FF00C05F15 /* TeamBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamBuilderView.swift; sourceTree = "<group>"; };
+		34DB69EE2796038300109A85 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		34DB69F02796039E00109A85 /* PokemonSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSelected.swift; sourceTree = "<group>"; };
+		34DB69F42796131B00109A85 /* PokemonImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonImage.swift; sourceTree = "<group>"; };
 		3B578863275928AB00DC7AD7 /* PokeBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeBox.swift; sourceTree = "<group>"; };
 		3BAFB8C7277269B900BB00EC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3BD328F6275FC0B100F74DB8 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
@@ -166,6 +172,9 @@
 				3B578863275928AB00DC7AD7 /* PokeBox.swift */,
 				3BD328F6275FC0B100F74DB8 /* Grid.swift */,
 				3BAFB8C7277269B900BB00EC /* Model.swift */,
+				34DB69EE2796038300109A85 /* Pokemon.swift */,
+				34DB69F02796039E00109A85 /* PokemonSelected.swift */,
+				34DB69F42796131B00109A85 /* PokemonImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -305,10 +314,13 @@
 				341D5A552757D80B00EE447F /* ContentView.swift in Sources */,
 				3BD328F7275FC0B100F74DB8 /* Grid.swift in Sources */,
 				346540DF2757D5FF00C05F15 /* TeamBuilderView.swift in Sources */,
+				34DB69F52796131B00109A85 /* PokemonImage.swift in Sources */,
+				34DB69EF2796038300109A85 /* Pokemon.swift in Sources */,
 				341D5A4D2757D66D00EE447F /* LoginView.swift in Sources */,
 				341D5A4F2757D69700EE447F /* PokemonView.swift in Sources */,
 				341D5A512757D6B500EE447F /* ProfileView.swift in Sources */,
 				3BAFB8C8277269B900BB00EC /* Model.swift in Sources */,
+				34DB69F12796039E00109A85 /* PokemonSelected.swift in Sources */,
 				3B578864275928AB00DC7AD7 /* PokeBox.swift in Sources */,
 				3430AAAB2757141F002EE982 /* PokedexApp.swift in Sources */,
 			);
