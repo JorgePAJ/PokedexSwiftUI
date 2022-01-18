@@ -7,71 +7,31 @@ struct Grid: View {
 //    @State var pokemonInfo : PokemonSelected
     @State var searchText = ""
     let columns = [
-        GridItem(.flexible()), GridItem(.flexible())
+        GridItem(.flexible(),spacing: 2),
+        GridItem(.flexible(),spacing: 2)
     ]
     
-    func backgroundPicker(Type:String) -> String {
-        switch Type{
-        case "bug":
-            return "bugBackground"
-        case "dark":
-            return "darkBackground"
-        case "dragon":
-            return "dragonBackground"
-        case "electric":
-            return "electricBackground"
-        case "fairy":
-            return "fairyBackground"
-        case "fighting":
-            return "fightingBackground"
-        case "fire":
-            return "fireBackground"
-        case "flying":
-            return "flyingBackground"
-        case "ghost":
-            return "ghostBackground"
-        case "grass":
-            return "grassBackground"
-        case "ground":
-            return "groundBackground"
-        case "ice":
-            return "iceBackground"
-        case "normal":
-            return "normalBackground"
-        case "poison":
-            return "poisonBackground"
-        case "psychic":
-            return "psychicBackground"
-        case "rock":
-            return "rockBackground"
-        case "steel":
-            return "steelBackground"
-        case "water":
-            return "waterBackground"
-            
-        default:
-            return "waterBackground"
-        }
-    }
     
     func filler(entry:PokemonEntry) ->(PokeBox){
         
-        return PokeBox(name: entry.name, id: pokemonInfo?.id ?? 690, image: entry.url, type: (pokemonInfo?.types[0].type?.name ?? "fire"), background: backgroundPicker(Type: pokemonInfo?.types[0].type?.name ?? "bug"))
+        return PokeBox(name: entry.name.capitalizingFirstLetter(), image: entry.url)
     }
+    
     
     var body: some View {
         NavigationView {
             ScrollView{
-            LazyVGrid(columns: columns){
+                LazyVGrid(columns: columns,spacing: 10){
                 ForEach(searchText == "" ? pokemon : pokemon.filter({
                     $0.name.contains(searchText.lowercased())
                 })) { entry in
                     
                     HStack{
-                        
-                        NavigationLink(destination: PokemonView()) {
+                        NavigationLink(destination: {
+                            PokemonView(name: entry.name, url: entry.url)
+                        }, label: {
                             filler(entry: entry)
-                        }
+                        })
                     }
                 }
             }

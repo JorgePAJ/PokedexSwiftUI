@@ -16,6 +16,7 @@ struct PokemonSelected : Codable {
 struct PokemonSprites : Codable {
     var front_default: String?
     var back_default: String?
+    var front_shiny: String?
 }
 
 struct PokemonTypes: Codable{
@@ -44,3 +45,5 @@ class PokemonSelectedApi  {
         }.resume()
     }
 }
+
+
