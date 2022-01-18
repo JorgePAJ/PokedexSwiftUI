@@ -18,15 +18,19 @@ struct PokemonEntry : Codable, Identifiable  {
     
 }
 
-
 class PokeApi  {
     func getData(completion:@escaping ([PokemonEntry]) -> ()) {
-        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=151") else { return }
+        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=400") else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }
             
             let pokemonList = try! JSONDecoder().decode(Pokemon.self, from: data)
+            for pokemon in pokemonList.results{
+                print("Pokim \(pokemon)")
+            }
+            
+            
             
             DispatchQueue.main.async {
                 completion(pokemonList.results)

@@ -43,7 +43,11 @@ struct PokeBox: View {
         
         }.onAppear {
             PokemonSelectedApi().getPokemon(url:image){ data in
-                self.pokemonInfo = data
+//                self.pokemonInfo = data
+                
+                DispatchQueue.main.async {
+                    self.pokemonInfo = data
+                }
             }
         }
 

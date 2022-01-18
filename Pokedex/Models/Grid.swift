@@ -55,7 +55,7 @@ struct Grid: View {
     }
     
     func filler(entry:PokemonEntry) ->(PokeBox){
-
+        
         return PokeBox(name: entry.name, id: pokemonInfo?.id ?? 690, image: entry.url, type: (pokemonInfo?.types[0].type?.name ?? "fire"), background: backgroundPicker(Type: pokemonInfo?.types[0].type?.name ?? "bug"))
     }
     
@@ -66,8 +66,9 @@ struct Grid: View {
                 ForEach(searchText == "" ? pokemon : pokemon.filter({
                     $0.name.contains(searchText.lowercased())
                 })) { entry in
+                    
                     HStack{
-// Placeholder pkm img
+                        
                         NavigationLink(destination: PokemonView()) {
                             filler(entry: entry)
                         }
@@ -75,15 +76,20 @@ struct Grid: View {
                 }
             }
             .onAppear(perform: {
-                PokeApi().getData() { pokemon in
-                    self.pokemon = pokemon
-                    
-                    for pokemons in pokemon {
-                        PokemonSelectedApi().getPokemon(url: pokemons.url){ datos in
-                            self.pokemonInfo = datos
+                DispatchQueue.main.async {
+                    PokeApi().getData() { pokemon in
+                        self.pokemon = pokemon
+                        
+                        for pokemons in pokemon {
+                            PokemonSelectedApi().getPokemon(url: pokemons.url){ datos in
+                                self.pokemonInfo = nil
+                                self.pokemonInfo = datos
+
+                            }
                         }
                     }
                 }
+
             })
             .searchable(text: $searchText)
             .navigationTitle("PokedexUI")
