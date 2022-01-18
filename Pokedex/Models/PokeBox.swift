@@ -9,17 +9,17 @@ import SwiftUI
 
 struct PokeBox: View {
     @State var name: String
-    @State var id : String
+    @State var id : Int
     @State var image : String
     @State var type: String
     @State var background: String
     
-    
+    @State var pokemonInfo : PokemonSelected?
     var body: some View {
         VStack {
             VStack{
                 VStack{
-                Text(name).foregroundColor(.black).bold().frame(maxWidth: .infinity).padding(.trailing, 70).padding(.top, 10)
+                    Text(name).foregroundColor(.black).bold().frame(maxWidth: .infinity).padding(.trailing, 70).padding(.top, 10)
                 Text("\(id)").foregroundColor(.black).font(.caption)
                 }
                 
@@ -41,8 +41,14 @@ struct PokeBox: View {
             }
             .frame(width: 150, height: 100).background(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1)).background(RoundedRectangle(cornerRadius: 10).fill(Color(background)))
         
+        }.onAppear {
+            PokemonSelectedApi().getPokemon(url:image){ data in
+                self.pokemonInfo = data
+                
+                print("daita taaaaips: \(data.types)")
+            }
         }
-        
+
         
         
     }
@@ -50,6 +56,6 @@ struct PokeBox: View {
 
 struct PokeBox_Previews: PreviewProvider {
     static var previews: some View {
-        PokeBox(name: "squirtle", id: "007", image: "7", type: "water", background: "waterBackground")
+        PokeBox(name: "squirtle", id: 7, image: "https://pokeapi.co/api/v2/pokemon/1/", type: "water", background: "waterBackground")
     }
 }

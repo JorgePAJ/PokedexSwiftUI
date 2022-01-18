@@ -2,11 +2,24 @@ import SwiftUI
 
 struct Grid: View {
     @State var pokemon = [PokemonEntry]()
+    @State var pokemonInfo :PokemonSelected?
+
+//    @State var pokemonInfo : PokemonSelected
     @State var searchText = ""
     let columns = [
         GridItem(.flexible()), GridItem(.flexible())
     ]
 
+    func tryout(Pokemon: PokemonEntry) -> () {
+        PokemonSelectedApi().getPokemon(url: Pokemon.url){ datos in
+   
+            self.pokemonInfo = datos
+        }
+    }
+    
+    func filler(entry:PokemonEntry) ->(PokeBox){
+        return PokeBox(name: entry.name, id: pokemonInfo?.id ?? 690, image: entry.url, type: (pokemonInfo?.types[0].type?.name ?? "water"), background: "waterBackground")
+    }
     
     var body: some View {
         NavigationView {
@@ -15,9 +28,13 @@ struct Grid: View {
                     $0.name.contains(searchText.lowercased())
                 })) { entry in
                     HStack{
-                        PokemonImage(imageLink: "\(entry.url)")
-                            .padding(.trailing, 20)// Placeholder pkm img
-                        NavigationLink("\(entry.name)".capitalized,destination: Text("Detail view for \(entry.name)"))
+                        filler(entry: entry)
+                            
+                            .padding(.trailing, 20)
+                            .onAppear {
+                                print("la entri: \(entry)")
+                            }// Placeholder pkm img
+                        NavigationLink("\(entry.name)".capitalized,destination: PokemonView())
                     }
                 }
             }
@@ -30,12 +47,11 @@ struct Grid: View {
             .searchable(text: $searchText)
             .navigationTitle("PokedexUI")
         }
-        .navigationBarHidden(true)
     }
 }
 
 struct Grid_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Grid()
     }
 }

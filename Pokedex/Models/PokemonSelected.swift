@@ -9,8 +9,8 @@ import Foundation
 
 struct PokemonSelected : Codable {
     var sprites: PokemonSprites
-    var weight: Int
     var id: Int
+    var types: [PokemonTypes]
 }
 
 struct PokemonSprites : Codable {
@@ -18,17 +18,28 @@ struct PokemonSprites : Codable {
     var back_default: String?
 }
 
+struct PokemonTypes: Codable{
+    var slot: Int?
+    var type: PokemonType?
+}
+
+struct PokemonType: Codable{
+
+    var url: String?
+    var name: String?
+}
+
 class PokemonSelectedApi  {
-    func getSprite(url: String, completion:@escaping (PokemonSprites) -> ()) {
+    func getPokemon(url: String, completion:@escaping (PokemonSelected) -> ()) {
         guard let url = URL(string: url) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }
-            
-            let pokemonSprite = try! JSONDecoder().decode(PokemonSelected.self, from: data)
-            
+            //print("data: \(data) response: \(response) error: \(error)")
+            let pokemonCaught = try! JSONDecoder().decode(PokemonSelected.self, from: data)
+
             DispatchQueue.main.async {
-                completion(pokemonSprite.sprites)
+                completion(pokemonCaught)
             }
         }.resume()
     }
