@@ -44,8 +44,6 @@ struct PokeBox: View {
         }.onAppear {
             PokemonSelectedApi().getPokemon(url:image){ data in
                 self.pokemonInfo = data
-                
-                print("daita taaaaips: \(data.types)")
             }
         }
 

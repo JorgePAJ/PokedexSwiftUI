@@ -11,8 +11,7 @@ struct PokedexView: View {
     var body: some View {
         NavigationView {
             Grid()
-        }.navigationBarTitleDisplayMode(.inline)
-            .navigationBarHidden(true)
+        }
     }
 }
 
