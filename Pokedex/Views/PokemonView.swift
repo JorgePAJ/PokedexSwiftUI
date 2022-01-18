@@ -45,7 +45,7 @@ struct pokePics:View{
             Button {
                 isShiny.toggle()
             } label: {
-                Text("Toggle shiny")
+                Text("Texto")
             }
 
         }

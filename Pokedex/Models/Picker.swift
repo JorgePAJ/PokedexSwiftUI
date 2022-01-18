@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Grid: View {
+struct Picker: View {
     @State var pokemon = [PokemonEntry]()
     @State var pokemonInfo :PokemonSelected?
 
@@ -26,14 +26,12 @@ struct Grid: View {
                     $0.name.contains(searchText.lowercased())
                 })) { entry in
                     HStack{
-                        NavigationLink(destination: {
-                            PokemonView(name: entry.name, url: entry.url).onAppear {
-                                self.pokeSelec = entry.url
-                                
-                            }
-                        }, label: {
+                        Button {
+                            return entry.url
+                        } label: {
                             filler(entry: entry)
-                        })
+                        }
+
                     }
                 }
             }
@@ -60,8 +58,8 @@ struct Grid: View {
     }
 }
 
-struct Grid_Previews: PreviewProvider {
+struct Picker_Previews: PreviewProvider {
     static var previews: some View {
-        Grid()
+        Picker()
     }
 }
