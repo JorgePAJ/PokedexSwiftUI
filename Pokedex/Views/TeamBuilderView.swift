@@ -61,33 +61,42 @@ struct TeamBuilderView: View {
 
 struct teamOptions: View{
     @State private var showingSheet = false
+    @State var button1 : String?
+    @State var button2 : String?
+    @State var button3 : String?
+    @State var button4 : String?
+    @State var button5 : String?
+    @State var button6 : String?
+    
     
     var body: some View{
         VStack{
             HStack{
-                Button(action: {showingSheet.toggle()}) {
-                    botonTeam()
+                Button(action: {
+                    showingSheet.toggle()
+                }) {
+                    botonTeam(linkto: button1)
                 }
                 Button(action: {showingSheet.toggle()}) {
-                    botonTeam()
+                    botonTeam(linkto: button2)
                 }
                 .padding(.horizontal,15)
                 Button(action: {showingSheet.toggle()}) {
-                    botonTeam()
+                    botonTeam(linkto: button3)
                 }
 
             }
             .padding(.vertical,15)
             HStack{
                 Button(action: {showingSheet.toggle()}) {
-                    botonTeam()
+                    botonTeam(linkto: button4)
                 }
                 Button(action: {showingSheet.toggle()}) {
-                    botonTeam()
+                    botonTeam(linkto: button5)
                 }
                 .padding(.horizontal,15)
                 Button(action: {showingSheet.toggle()}) {
-                    botonTeam()
+                    botonTeam(linkto: button6)
                 }
 
             }
@@ -101,11 +110,12 @@ struct SheetView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        Grid()
+        Picker()
     }
 }
 
 struct botonTeam: View{
+    @State var linkto: String?
     var body: some View{
         ZStack {
             
@@ -117,8 +127,7 @@ struct botonTeam: View{
                 .strokeBorder(.black,lineWidth: 1)
                 .frame(width: 80, height: 80)
             
-            Text("+")
-                .foregroundColor(.white)
+            PokemonImage(select: 0, imageLink: linkto ?? "https://pokeapi.co/api/v2/pokemon/1/")                .foregroundColor(.white)
                 .font(.system(size: 30))
         }
     }

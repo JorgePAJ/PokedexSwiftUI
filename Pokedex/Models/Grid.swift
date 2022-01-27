@@ -1,44 +1,63 @@
-//
-//  Grid.swift
-//  Pokedex
-//
-//  Created by Diego Mojarro on 07/12/21.
-//
-
 import SwiftUI
 
 struct Grid: View {
-    
-    @State private var pokemonViewScreen = false
-    
+    @State var pokemon = [PokemonEntry]()
+    @State var pokemonInfo :PokemonSelected?
+
+//    @State var pokemonInfo : PokemonSelected
+    @State var searchText = ""
     let columns = [
-        GridItem(.flexible()), GridItem(.flexible())
+        GridItem(.flexible(),spacing: 2),
+        GridItem(.flexible(),spacing: 2)
     ]
     
-    var body: some View{
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 40) {
-                    ForEach((0...30), id: \.self) {_ in
-                        NavigationLink {
-                            PokemonView()
-                                .navigationBarTitleDisplayMode(.inline)
-                        } label: {
-                            PokeBox(name: "Squirtle", id: "007", image: "7", type: "water", background: "waterBackground")
-                        }
-
-                        
-                    }
-                }
-                .padding(.horizontal)
-            }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
-            .navigationBarTitleDisplayMode(.inline)
-        }
+    
+    func filler(entry:PokemonEntry) ->(PokeBox){
         
+        return PokeBox(name: entry.name.capitalizingFirstLetter(), image: entry.url)
     }
     
+    @State var pokeSelec: String?
+    var body: some View {
+        NavigationView {
+            ScrollView{
+                LazyVGrid(columns: columns,spacing: 10){
+                ForEach(searchText == "" ? pokemon : pokemon.filter({
+                    $0.name.contains(searchText.lowercased())
+                })) { entry in
+                    HStack{
+                        NavigationLink(destination: {
+                            PokemonView(name: entry.name, url: entry.url).onAppear {
+                                self.pokeSelec = entry.url
+                                
+                            }
+                        }, label: {
+                            filler(entry: entry)
+                        })
+                    }
+                }
+            }
+            .onAppear(perform: {
+                DispatchQueue.main.async {
+                    PokeApi().getData() { pokemon in
+                        self.pokemon = pokemon
+                        
+                        for pokemons in pokemon {
+                            PokemonSelectedApi().getPokemon(url: pokemons.url){ datos in
+                                self.pokemonInfo = nil
+                                self.pokemonInfo = datos
+
+                            }
+                        }
+                    }
+                }
+
+            })
+            .searchable(text: $searchText)
+            .navigationTitle("PokedexUI")
+        }
+        }.navigationBarHidden(true)
+    }
 }
 
 struct Grid_Previews: PreviewProvider {
