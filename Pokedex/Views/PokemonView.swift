@@ -38,9 +38,9 @@ struct pokePics:View{
     var body: some View{
         VStack{
             if isShiny {
-                PokemonImage(select: 1, imageLink: link)
-            }else{
                 PokemonImage(select: 0, imageLink: link)
+            }else{
+                PokemonImage(select: 1, imageLink: link)
             }
             Button {
                 isShiny.toggle()

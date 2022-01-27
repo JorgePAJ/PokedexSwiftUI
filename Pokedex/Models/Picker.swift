@@ -27,7 +27,7 @@ struct Picker: View {
                 })) { entry in
                     HStack{
                         Button {
-                            return entry.url
+//                            return entry.url
                         } label: {
                             filler(entry: entry)
                         }
